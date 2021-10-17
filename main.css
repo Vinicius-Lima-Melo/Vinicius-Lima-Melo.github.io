@@ -1,0 +1,150 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  color: #262626;
+}
+a{
+  text-decoration: none;
+}
+
+
+.label{
+  width: 50px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 50px;
+  background: #111;
+  position: relative;
+  cursor: pointer;
+  
+}
+
+.fa-moon{color: #f1c40f}
+.fa-sun{color: #f39c12}
+
+.ball{
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FFF;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s linear; 
+
+}
+.checkbox{
+  opacity: 0;
+  position: absolute;
+}
+.checkbox:checked + .label .ball{
+  transform: translateX(24px);
+}
+
+
+.container{
+  width: 40vw;
+  height: 100vh;
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  padding: 12vh 5vw 0 5vw;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.btn-toggle{
+  position: absolute;
+  top: 5vh;
+  right: 20px;
+}
+.foto-perfil{
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  margin: 0 auto;
+  background-image: url(image.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 10%;
+}
+.titulos{
+  width: 100%;
+}
+.titulo{
+  text-align: center;
+  font-size: 24px;
+  margin-top: 2vh;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.subtitulo{
+  text-align: center;
+  font-size: 18px;
+  color: #B7B7B7;
+}
+
+/*///////////Botoes*/
+.btn-group{
+  /*background: black;*/
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.btn{
+  width: 100%;
+  height: 10vh;
+  position: relative;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 5px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn i{
+  font-size: 26px;
+  color: #FFF;
+  position: absolute;
+  left: 30px;
+}
+.btn .titulo{
+  height: 100%;
+  width: 30%;
+  margin-top: 0;
+  margin-left: 10%;
+  display: flex;
+  align-items: center;
+}
+.btn span{
+  color: #FFF;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/*Classes*/
+
+.btn-github{background: #000}
+.btn-linkedin{background: #6C9FFD}
+.btn-facebook{background: #407EEF}
+.btn-instagram{background-image: linear-gradient(45deg, #E9E050, #f00, #90c)}
+
+.modo-escuro{background: #262626; transition: 200ms}
+.modo-claro{background: #FFF}
+.fonte-clara{color: #FFF}
+.fonte-escura{color: #000}
+
+
+/*Responsividade*/
+
+@media screen and (max-width: 1200px) {.container{width: 50vw}}
+@media screen and (max-width: 900px)  {.container{width: 60vw}}
+@media screen and (max-width: 700px)  {.container{ width: 70vw}}
+@media screen and (max-width: 600px)  {.container{width: 80vw}}
+@media screen and (max-width: 500px)  {.container{width: 100vw}}
