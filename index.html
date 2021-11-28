@@ -1,72 +1,111 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>Meus links</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="main.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Noto+Sans+JP&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-</head>
-<body>
-	<div class="container">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="btn-toggle">
+        <input type="checkbox" class="checkbox" id="checkbox" />
+        <label for="checkbox" class="label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <div class="ball"></div>
+        </label>
+      </div>
 
-		<div class="btn-toggle">
-			<input type="checkbox" class="checkbox" id="checkbox">
-			<label for="checkbox" class="label">
-				<i class="fas fa-moon"></i>
-				<i class="fas fa-sun"></i>
-				<div class="ball"></div>
-			</label>
-		</div>
+      <div class="foto-perfil"></div>
+      <span class="titulo change">Vinicius Lima</span>
+      <!-- <span class="subtitulo">@vinicius-lima-melo</span> -->
+      <a
+        href="https://github.com/Vinicius-Lima-Melo/"
+        target="_blank"
+        class="subtitulo"
+        >@vinicius-lima-melo</a
+      >
 
-		<div class="foto-perfil"></div>
-		<span class="titulo change">Vinicius Lima</span>
-		<span class="subtitulo">@vinicius-lima-melo</span>
+      <div class="btn-group">
+        <a
+          href="https://github.com/Vinicius-Lima-Melo"
+          target="_blank"
+          class="btn btn-github animation"
+        >
+          <i class="fab fa-github"></i>
+          <span>Github</span>
+        </a>
+        <a
+          href="https://linkedin.com/in/vinicius-lima-melo"
+          target="_blank"
+          class="btn btn-linkedin animation"
+        >
+          <i class="fab fa-linkedin"></i>
+          <span>Linkedin</span>
+        </a>
+        <a
+          href="https://www.facebook.com/profile.php?id=100019508536454"
+          target="_blank"
+          class="btn btn-facebook animation"
+        >
+          <i class="fab fa-facebook"></i>
+          <span>Facebook</span>
+        </a>
+        <a
+          href="https://www.instagram.com/Viniih_lima/"
+          target="_blank"
+          class="btn btn-instagram animation"
+        >
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+        </a>
+      </div>
+    </div>
 
-		<div class="btn-group">
-			<a href="https://github.com/Vinicius-Lima-Melo" target="_blank" class="btn btn-github">
-				<i class="fab fa-github"></i>
-				<span>Github</span>
-			</a>
-			<a href="https://linkedin.com/in/vinicius-lima-melo" target="_blank" class="btn btn-linkedin">
-				<i class="fab fa-linkedin"></i>
-				<span>Linkedin</span>
-			</a>
-			<a href="https://www.facebook.com/profile.php?id=100019508536454" target="_blank" class="btn btn-facebook">
-				<i class="fab fa-facebook"></i>
-				<span>Facebook</span>
-			</a>
-			<a href="https://www.instagram.com/Viniih_lima/" target="_blank" class="btn btn-instagram">
-				<i class="fab fa-instagram"></i>
-				<span>Instagram</span>
-			</a>
-		</div>	
-	</div>
+    <script>
+      var modo = "claro";
 
-	<script>
-		var modo = "claro";
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		modo = "escuro"
+		$("body").toggleClass("modo-escuro");
+	}
 
-		$(document).on('change', '#checkbox', function(event) {
-			$('body').toggleClass('modo-escuro');
-			if (modo == "claro") {
-				modo = "escuro";
-				$('.change').removeClass('fonte-escura');
-				$('.change').addClass('fonte-clara');
-			}
-			else{
-				modo = "claro";
-				$('.change').removeClass('fonte-clara');
-				$('.change').addClass('fonte-escura');
-			}
-		});
+      $(document).on("change", "#checkbox", function (event) {
+        
+		$("body").toggleClass("modo-escuro");
+        
+		if (modo == "claro") {
+          modo = "escuro";
+          $(".change").removeClass("fonte-escura");
+          $(".change").addClass("fonte-clara");
+        } else {
+          modo = "claro";
+          $(".change").removeClass("fonte-clara");
+          $(".change").addClass("fonte-escura");
+        }
+      });
 
-
-		$(".btn-alterar-modo").click(function() {
-			
-		});
-	</script>
-</body>
+      $(".btn-alterar-modo").click(function () {});
+    </script>
+  </body>
 </html>
