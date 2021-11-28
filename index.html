@@ -88,6 +88,8 @@
 	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 		modo = "escuro"
 		$("body").toggleClass("modo-escuro");
+		$(".change").removeClass("fonte-escura");
+        $(".change").addClass("fonte-clara");
 	}
 
       $(document).on("change", "#checkbox", function (event) {
