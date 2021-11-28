@@ -37,13 +37,17 @@
       </div>
 
       <div class="foto-perfil"></div>
-      <span class="titulo change">Vinicius Lima</span>
+      <span class="titulo change">
+		  <!-- Vinicius Lima -->
+		</span>
       <!-- <span class="subtitulo">@vinicius-lima-melo</span> -->
       <a
         href="https://github.com/Vinicius-Lima-Melo/"
         target="_blank"
         class="subtitulo"
-        >@vinicius-lima-melo</a
+        >
+		<!-- @vinicius-lima-melo -->
+		</a
       >
 
       <div class="btn-group">
@@ -85,18 +89,20 @@
     <script>
       var modo = "claro";
 
-	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-		modo = "escuro"
-		$("body").toggleClass("modo-escuro");
-		$(".change").removeClass("fonte-escura");
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        modo = "escuro";
+        $("body").toggleClass("modo-escuro");
+        $(".change").removeClass("fonte-escura");
         $(".change").addClass("fonte-clara");
-	}
+      }
 
       $(document).on("change", "#checkbox", function (event) {
-        
-		$("body").toggleClass("modo-escuro");
-        
-		if (modo == "claro") {
+        $("body").toggleClass("modo-escuro");
+
+        if (modo == "claro") {
           modo = "escuro";
           $(".change").removeClass("fonte-escura");
           $(".change").addClass("fonte-clara");
@@ -108,6 +114,36 @@
       });
 
       $(".btn-alterar-modo").click(function () {});
+
+      var i = 0;
+      var letters = "";
+	  
+	  $(document).ready(() =>{
+		  typeWriter('titulo', 'Vinicius Lima', 100, false)
+	  })
+      
+	  function typeWriter(cssClass, text, speed, stop = false){
+        if (i < text.length) {
+          letters += text.charAt(i);
+		  console.log(letters)
+          $("."+cssClass).html(letters);
+          i++;
+		  setTimeout(() => {
+			  typeWriter(cssClass, text, speed, stop)
+		  }, speed);
+        }
+		else if( i === text.length){
+			if(stop){
+				return
+			}
+			i = 0
+			letters = ""
+			typeWriter('subtitulo', '@vinicius-lima-melo', 100, true)
+
+		}
+      }
+
+
     </script>
   </body>
 </html>
