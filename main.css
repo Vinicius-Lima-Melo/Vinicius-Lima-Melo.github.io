@@ -92,12 +92,13 @@ body{
   letter-spacing: 1px;
 }
 .subtitulo {
-  text-align: center;
-  font-size: 18px;
+   text-align: center;
+  font-size: 15px;
   color: #b7b7b7;
   min-height: 24px;
   margin-top: 4px;
-  color: #971ad1;
+  font-weight: 800;
+  color: #979797;
 }
 
 /*///////////Botoes*/
