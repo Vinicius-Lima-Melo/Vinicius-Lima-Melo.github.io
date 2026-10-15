@@ -1,149 +1,254 @@
-<!DOCTYPE html>
-<html lang="pt">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>Meus links</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="main.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Noto+Sans+JP&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="btn-toggle">
-        <input type="checkbox" class="checkbox" id="checkbox" />
-        <label for="checkbox" class="label">
-          <i class="fas fa-moon"></i>
-          <i class="fas fa-sun"></i>
-          <div class="ball"></div>
-        </label>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Vinícius Lima · Links</title>
+  <meta name="description" content="Links do Vinícius Lima, desenvolvedor full stack em Iperó, SP: orçamento de sistema, GitHub, LinkedIn, Instagram e o trabalho de graduação.">
+  <link rel="canonical" href="https://vinicius-lima-melo.github.io/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Vinícius Lima">
+  <meta property="og:title" content="Vinícius Lima · Desenvolvedor Full Stack">
+  <meta property="og:description" content="Sistemas web, apps e SaaS sob medida — todos os meus links num lugar só.">
+  <meta property="og:url" content="https://vinicius-lima-melo.github.io/">
+  <meta property="og:image" content="https://vinicius-lima-melo.github.io/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vinícius Lima, desenvolvedor full stack: sistemas web, apps e SaaS sob medida.">
+  <meta property="profile:first_name" content="Vinícius">
+  <meta property="profile:last_name" content="Lima">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="theme-color" content="#0c0416" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#faf7ff" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Tema antes de pintar: sem isto a página piscava escura e depois clareava. -->
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('vl-theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.dataset.theme = t;
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+  <script src="fundos.js" defer></script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Vinícius Lima",
+      "jobTitle": "Desenvolvedor Full Stack",
+      "url": "https://vinicius-lima-melo.github.io/",
+      "image": "https://vinicius-lima-melo.github.io/assets/vinicius.jpg",
+      "address": { "@type": "PostalAddress", "addressLocality": "Iperó", "addressRegion": "SP", "addressCountry": "BR" },
+      "knowsAbout": ["Angular", "TypeScript", "Firebase", "Node.js", "PHP", "Ionic", "PWA", "SaaS"],
+      "sameAs": [
+        "https://github.com/Vinicius-Lima-Melo",
+        "https://www.linkedin.com/in/vinicius-lima-melo"
+      ]
+    }
+  </script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8"/><path d="M8 13h5"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98"/><path d="m15.41 6.51-6.82 3.98"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol>
+  </svg>
+
+  <a class="skip" href="#conteudo">Pular para os links</a>
+
+  <div class="backdrop" aria-hidden="true">
+    <div class="backdrop__glow backdrop__glow--a"></div>
+    <div class="backdrop__glow backdrop__glow--b"></div>
+    <canvas class="backdrop__canvas"></canvas>
+    <div class="backdrop__scrim"></div>
+    <div class="backdrop__noise"></div>
+  </div>
+
+  <div class="bio">
+    <!-- ============================== Perfil ============================== -->
+    <header class="profile">
+      <div class="profile__bar">
+        <p class="status"><span class="status__dot" aria-hidden="true"></span>Disponível para projetos</p>
+        <div class="profile__tools">
+          <button class="icon-btn" type="button" id="share-btn" aria-label="Compartilhar esta página">
+            <svg class="i" aria-hidden="true"><use href="#i-share"/></svg>
+          </button>
+          <button class="icon-btn" type="button" id="theme-btn" aria-label="Mudar para o tema claro">
+            <svg class="i i--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+            <svg class="i i--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          </button>
+        </div>
       </div>
 
-      <div class="foto-perfil"></div>
-      <span class="titulo change">
-		  <!-- Vinicius Lima -->
-		</span>
-      <!-- <span class="subtitulo">@vinicius-lima-melo</span> -->
-      <a
-        href="https://github.com/Vinicius-Lima-Melo/"
-        target="_blank"
-        class="subtitulo"
-        >
-		<!-- @vinicius-lima-melo -->
-		</a
-      >
-
-      <div class="btn-group">
-        <a
-          href="https://github.com/Vinicius-Lima-Melo"
-          target="_blank"
-          class="btn btn-github animation"
-        >
-          <i class="fab fa-github"></i>
-          <span>Github</span>
-        </a>
-        <a
-          href="https://linkedin.com/in/vinicius-lima-melo"
-          target="_blank"
-          class="btn btn-linkedin animation"
-        >
-          <i class="fab fa-linkedin"></i>
-          <span>Linkedin</span>
-        </a>
-        <a
-          href="https://www.facebook.com/profile.php?id=100019508536454"
-          target="_blank"
-          class="btn btn-facebook animation"
-        >
-          <i class="fab fa-facebook"></i>
-          <span>Facebook</span>
-        </a>
-        <a
-          href="https://www.instagram.com/Viniih_lima/"
-          target="_blank"
-          class="btn btn-instagram animation"
-        >
-          <i class="fab fa-instagram"></i>
-          <span>Instagram</span>
-        </a>
+      <div class="avatar">
+        <img src="assets/vinicius.jpg" width="320" height="320" alt="Vinícius Lima, de boné e óculos escuros, sobre um fundo roxo com símbolos de código" fetchpriority="high">
       </div>
-    </div>
 
-    <script>
-      var modo = "claro";
+      <h1 class="name">Vinícius Lima</h1>
+      <p class="role">Full Stack Pleno · Gestor de Projetos</p>
+      <p class="pitch">
+        <span class="pitch__lead">Construo
+        <span class="sr-only">sistemas web, apps multiplataforma, SaaS e PWAs</span>
+        <span class="type" aria-hidden="true"><span class="type__text" id="type-text">sistemas web</span></span></span><br>
+        que o seu negócio usa todo dia.
+      </p>
+      <p class="where"><svg class="i" aria-hidden="true"><use href="#i-map-pin"/></svg>Iperó, SP</p>
 
-      if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-      ) {
-        modo = "escuro";
-        $("body").toggleClass("modo-escuro");
-        $(".change").removeClass("fonte-escura");
-        $(".change").addClass("fonte-clara");
-      }
+    </header>
 
-      $(document).on("change", "#checkbox", function (event) {
-        $("body").toggleClass("modo-escuro");
+    <main id="conteudo" tabindex="-1">
+      <!-- ============================== Aba: Links ============================== -->
+      <section class="panel" id="links" aria-labelledby="links-title">
+        <h2 class="sr-only" id="links-title">Links</h2>
 
-        if (modo == "claro") {
-          modo = "escuro";
-          $(".change").removeClass("fonte-escura");
-          $(".change").addClass("fonte-clara");
-        } else {
-          modo = "claro";
-          $(".change").removeClass("fonte-clara");
-          $(".change").addClass("fonte-escura");
-        }
-      });
+        <ul class="blocks">
+          <li data-reveal>
+            <a class="card link is-highlight" href="mailto:viniciuslimamelo.dev@gmail.com?subject=Or%C3%A7amento%20de%20sistema">
+              <span class="link__icon"><svg class="i" aria-hidden="true"><use href="#i-message"/></svg></span>
+              <span class="link__body">
+                <span class="link__label">Orçamento de sistema</span>
+                <span class="link__desc">Me conta a ideia — eu volto com um plano e um prazo</span>
+              </span>
+              <svg class="i link__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
 
-      $(".btn-alterar-modo").click(function () {});
+          <li data-reveal>
+            <a class="card link" href="https://github.com/Vinicius-Lima-Melo" target="_blank" rel="noopener">
+              <span class="link__icon"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg></span>
+              <span class="link__body">
+                <span class="link__label">GitHub</span>
+                <span class="link__desc">Código, extensões e projetos abertos</span>
+              </span>
+              <span class="sr-only">(abre em nova aba)</span>
+              <svg class="i link__arrow" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+            </a>
+          </li>
 
-      var i = 0;
-      var letters = "";
-	  
-	  $(document).ready(() =>{
-		  typeWriter('titulo', 'Vinícius Lima', 100, false)
-	  })
-      
-	  function typeWriter(cssClass, text, speed, stop = false){
-        if (i < text.length) {
-          letters += text.charAt(i);
-		  console.log(letters)
-          $("."+cssClass).html(letters);
-          i++;
-		  setTimeout(() => {
-			  typeWriter(cssClass, text, speed, stop)
-		  }, speed);
-        }
-		else if( i === text.length){
-			if(stop){
-				return
-			}
-			i = 0
-			letters = ""
-			typeWriter('subtitulo', 'Desenvolvedor Full Stack Pleno', 100, true)
+          <li data-reveal>
+            <a class="card link" href="https://www.linkedin.com/in/vinicius-lima-melo" target="_blank" rel="noopener">
+              <span class="link__icon"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg></span>
+              <span class="link__body">
+                <span class="link__label">LinkedIn</span>
+                <span class="link__desc">Experiência profissional e recomendações</span>
+              </span>
+              <span class="sr-only">(abre em nova aba)</span>
+              <svg class="i link__arrow" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+            </a>
+          </li>
 
-		}
-      }
+          <li data-reveal>
+            <a class="card link" href="https://www.instagram.com/Viniih_lima/" target="_blank" rel="noopener">
+              <span class="link__icon"><svg class="i" aria-hidden="true"><use href="#i-instagram"/></svg></span>
+              <span class="link__body">
+                <span class="link__label">Instagram</span>
+                <span class="link__desc">@viniih_lima</span>
+              </span>
+              <span class="sr-only">(abre em nova aba)</span>
+              <svg class="i link__arrow" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+            </a>
+          </li>
+
+          <li data-reveal>
+            <a class="card link" href="https://github.com/Vinicius-Lima-Melo/web-copilot" target="_blank" rel="noopener">
+              <span class="link__icon"><svg class="i" aria-hidden="true"><use href="#i-zap"/></svg></span>
+              <span class="link__body">
+                <span class="link__label">Web Copilot <span class="badge badge--violet">open source</span><span class="badge" id="copilot-stars" hidden><svg class="i" aria-hidden="true"><use href="#i-star"/></svg><span></span><span class="sr-only"></span></span></span>
+                <span class="link__desc">Extensão grátis que preenche formulários com dados de teste válidos</span>
+              </span>
+              <span class="sr-only">(abre em nova aba)</span>
+              <svg class="i link__arrow" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+            </a>
+          </li>
 
 
-    </script>
-  </body>
+          <!-- Destaque: o trabalho de graduação (TG) -->
+          <li data-reveal>
+            <article class="card feature" aria-labelledby="ptg-title">
+              <div class="feature__text">
+                <div class="feature__head">
+                  <p class="feature__kicker">Graduação · FATEC Tatuí</p>
+                  <span class="badge badge--violet">TG</span>
+                </div>
+                <h3 class="feature__title" id="ptg-title">
+                  <a class="feature__link" href="https://github.com/Vinicius-Lima-Melo/carteirinha-digital-fatec" target="_blank" rel="noopener">Carteirinha Digital<span class="sr-only"> (abre em nova aba)</span><svg class="i" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+                </h3>
+                <p class="feature__desc">A carteirinha de estudante no celular, de forma rápida, segura e gratuita. Meu trabalho de graduação (TG): app do aluno, painel de gestão da faculdade e API.</p>
+              </div>
+
+              <!-- Ilustração da carteirinha: decorativa, sem dados de ninguém. -->
+              <div class="idcard" aria-hidden="true">
+                <div class="idcard__top">
+                  <span class="idcard__org">FATEC Tatuí</span>
+                  <span class="idcard__chip"></span>
+                </div>
+                <div class="idcard__body">
+                  <span class="idcard__photo"><svg class="i"><use href="#i-user"/></svg></span>
+                  <span class="idcard__lines"><i></i><i></i><i></i></span>
+                  <svg class="idcard__qr" viewBox="-1 -1 23 23" shape-rendering="crispEdges"><rect x="-1" y="-1" width="23" height="23" rx="2"/><path d="M0 0h7v1h-7zM8 0h2v1h-2zM11 0h1v1h-1zM14 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h2v1h-2zM11 1h2v1h-2zM14 1h1v1h-1zM20 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h3v1h-3zM12 2h1v1h-1zM14 2h1v1h-1zM16 2h3v1h-3zM20 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h1v1h-1zM12 3h1v1h-1zM14 3h1v1h-1zM16 3h3v1h-3zM20 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM9 4h1v1h-1zM11 4h2v1h-2zM14 4h1v1h-1zM16 4h3v1h-3zM20 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h2v1h-2zM11 5h1v1h-1zM14 5h1v1h-1zM20 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h7v1h-7zM9 7h1v1h-1zM11 7h2v1h-2zM0 8h1v1h-1zM2 8h2v1h-2zM5 8h3v1h-3zM10 8h1v1h-1zM15 8h1v1h-1zM17 8h2v1h-2zM20 8h1v1h-1zM1 9h1v1h-1zM7 9h1v1h-1zM11 9h1v1h-1zM14 9h1v1h-1zM16 9h1v1h-1zM0 10h2v1h-2zM3 10h6v1h-6zM10 10h3v1h-3zM14 10h2v1h-2zM20 10h1v1h-1zM0 11h2v1h-2zM4 11h2v1h-2zM7 11h2v1h-2zM11 11h4v1h-4zM0 12h1v1h-1zM5 12h4v1h-4zM10 12h11v1h-11zM10 13h5v1h-5zM17 13h1v1h-1zM19 13h2v1h-2zM0 14h7v1h-7zM8 14h2v1h-2zM11 14h2v1h-2zM14 14h5v1h-5zM0 15h1v1h-1zM6 15h1v1h-1zM9 15h3v1h-3zM14 15h1v1h-1zM18 15h1v1h-1zM0 16h1v1h-1zM2 16h3v1h-3zM6 16h1v1h-1zM10 16h1v1h-1zM12 16h3v1h-3zM16 16h1v1h-1zM18 16h2v1h-2zM0 17h1v1h-1zM2 17h3v1h-3zM6 17h1v1h-1zM10 17h5v1h-5zM18 17h1v1h-1zM0 18h1v1h-1zM2 18h3v1h-3zM6 18h1v1h-1zM8 18h1v1h-1zM13 18h8v1h-8zM0 19h1v1h-1zM6 19h1v1h-1zM10 19h3v1h-3zM15 19h1v1h-1zM19 19h1v1h-1zM0 20h7v1h-7zM8 20h2v1h-2zM14 20h1v1h-1zM17 20h4v1h-4z"/></svg>
+                </div>
+                <div class="idcard__foot">
+                  <span>Estudante</span>
+                  <span class="idcard__ok"><svg class="i"><use href="#i-check"/></svg>válida</span>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ============================== Rodapé ============================== -->
+      <footer class="footer">
+        <nav aria-label="Redes sociais">
+          <ul class="socials">
+            <li><a class="social" href="https://github.com/Vinicius-Lima-Melo" target="_blank" rel="noopener" aria-label="GitHub (abre em nova aba)"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+            <li><a class="social" href="https://www.linkedin.com/in/vinicius-lima-melo" target="_blank" rel="noopener" aria-label="LinkedIn (abre em nova aba)"><svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+            <li><a class="social" href="https://www.instagram.com/Viniih_lima/" target="_blank" rel="noopener" aria-label="Instagram (abre em nova aba)"><svg class="i" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+            <li><a class="social" href="mailto:viniciuslimamelo.dev@gmail.com" aria-label="E-mail"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg></a></li>
+          </ul>
+        </nav>
+
+        <button class="copy" type="button" data-copy="viniciuslimamelo.dev@gmail.com" aria-describedby="copy-hint">
+          <span class="copy__text">viniciuslimamelo.dev@gmail.com</span>
+          <svg class="i copy__icon" aria-hidden="true"><use href="#i-copy"/></svg>
+          <svg class="i copy__done" aria-hidden="true"><use href="#i-check"/></svg>
+        </button>
+        <p class="sr-only" id="copy-hint">Copia o e-mail</p>
+
+        <p class="footer__note">© 2026 Vinícius Lima</p>
+      </footer>
+    </main>
+  </div>
+
+  <p class="sr-only" role="status" aria-live="polite" id="announcer"></p>
+</body>
 </html>

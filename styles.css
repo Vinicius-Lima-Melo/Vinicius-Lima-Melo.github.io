@@ -361,14 +361,17 @@ main:focus { outline: none; }
   color: var(--subtle);
 }
 
+/* As linhas vêm do <br>. "Construo" e a palavra digitada nunca se separam:
+   no celular estreito a letra diminui um pouco para a mais longa caber. */
 .pitch {
   margin-top: 14px;
-  max-width: 30ch;
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 4.6vw, 1.125rem);
   line-height: 1.45;
   letter-spacing: -0.015em;
   color: var(--muted);
 }
+
+.pitch__lead { white-space: nowrap; }
 
 /* O texto que se digita sozinho: monoespaçado, num "token" no roxo da foto,
    com cursor em bloco — como no terminal. */
