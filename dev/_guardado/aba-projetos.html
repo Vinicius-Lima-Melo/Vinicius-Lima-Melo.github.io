@@ -1,0 +1,423 @@
+<!--
+  Aba "Projetos" — tirada da página em 14/10/2026, "por enquanto".
+
+  Este arquivo não vai para o ar: o GitHub Pages ignora pastas que começam com "_".
+  Para trazer a aba de volta:
+    1. index.html — cole os ícones no <svg> de símbolos, as abas logo antes de
+       </header>, a seção Projetos antes do rodapé, e o trecho do <head> logo
+       antes de `document.documentElement.classList.add('js')`. Na seção de
+       links, devolva role="tabpanel" aria-labelledby="tab-links" e o id
+       "painel-links".
+    2. styles.css — cole as abas e os painéis antes de ".blocks", e os projetos
+       antes do rodapé.
+    3. app.js — cole o bloco das abas antes da "Máquina de escrever".
+-->
+
+<!-- ===================== index.html: trecho do <head> ===================== -->
+      // A aba que abre: quem chega por /dev/#projetos já vê os projetos, sem piscar os links.
+      var h = location.hash;
+      document.documentElement.dataset.tab = h === '#projetos' || h.indexOf('#p-') === 0 ? 'projetos' : 'links';
+
+<!-- ===================== index.html: ícones ===================== -->
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+    <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+    <symbol id="i-id-card" viewBox="0 0 24 24"><path d="M16 10h2"/><path d="M16 14h2"/><path d="M6.17 15a3 3 0 0 1 5.66 0"/><circle cx="9" cy="11" r="2"/><rect x="2" y="5" width="20" height="14" rx="2"/></symbol>
+
+<!-- ===================== index.html: abas ===================== -->
+      <div class="tabs" role="tablist" aria-label="Seções da página">
+        <button class="tabs__tab" type="button" role="tab" id="tab-links" aria-controls="painel-links" aria-selected="true">Links</button>
+        <button class="tabs__tab" type="button" role="tab" id="tab-projetos" aria-controls="projetos" aria-selected="false" tabindex="-1">Projetos</button>
+      </div>
+
+<!-- ===================== index.html: aba Projetos ===================== -->
+      <!-- ============================== Aba: Projetos ============================== -->
+      <section class="panel" id="projetos" role="tabpanel" aria-labelledby="tab-projetos">
+        <h2 class="sr-only">Projetos</h2>
+        <p class="panel__intro">Do pedido no celular ao fechamento do caixa: sistemas que rodam no balcão, na cozinha e na oficina dos meus clientes.</p>
+
+        <ul class="blocks">
+          <li>
+            <article class="card project" id="p-menusprime" tabindex="-1" aria-labelledby="p-menusprime-t">
+              <div class="project__top">
+                <span class="thumb thumb--food" aria-hidden="true"><svg class="i"><use href="#i-utensils"/></svg></span>
+                <div class="project__heading">
+                  <p class="project__kicker">Restaurantes</p>
+                  <h3 class="project__title" id="p-menusprime-t">MenusPrime <span>+ InterMenusPrime</span></h3>
+                </div>
+                <span class="badge badge--live"><span class="badge__dot" aria-hidden="true"></span>em produção</span>
+              </div>
+              <p class="project__desc">Dois sistemas, um banco só. O delivery recebe o pedido com PIX; o salão lança na mesa, a cozinha prepara e o caixa fecha a conta — mesmo sem internet.</p>
+              <div class="mock" aria-hidden="true">
+                <div class="mock__bar"><span class="mock__live"></span><span>Pedidos · ao vivo</span><span class="mock__kbd">Ctrl K</span></div>
+                <ul class="mock__list">
+                  <li><span class="mock__id">#1042</span><span class="mock__what">Mesa 7 · X-Salada</span><span class="pill pill--amber">preparando</span></li>
+                  <li><span class="mock__id">#1041</span><span class="mock__what">Delivery · Açaí 500 ml</span><span class="pill pill--live">pronto</span></li>
+                  <li><span class="mock__id">#1040</span><span class="mock__what">Balcão · Suco de laranja</span><span class="pill pill--muted">servido</span></li>
+                </ul>
+              </div>
+            </article>
+          </li>
+
+          <li>
+            <article class="card project" id="p-linkei" tabindex="-1" aria-labelledby="p-linkei-t">
+              <div class="project__top">
+                <span class="thumb thumb--links" aria-hidden="true"><svg class="i"><use href="#i-link"/></svg></span>
+                <div class="project__heading">
+                  <p class="project__kicker">SaaS · Whitelabel</p>
+                  <h3 class="project__title" id="p-linkei-t">Linkei</h3>
+                </div>
+                <span class="badge">produto</span>
+              </div>
+              <p class="project__desc">Catálogo e página de links para lojistas — o motor por trás de páginas como esta. Multi-loja ou um projeto por cliente, com painel, funil de visitas e QR Code.</p>
+            </article>
+          </li>
+
+          <li>
+            <article class="card project" id="p-folhei" tabindex="-1" aria-labelledby="p-folhei-t">
+              <div class="project__top">
+                <span class="thumb thumb--book" aria-hidden="true"><svg class="i"><use href="#i-book"/></svg></span>
+                <div class="project__heading">
+                  <p class="project__kicker">Plataforma</p>
+                  <h3 class="project__title" id="p-folhei-t"><a class="project__link" href="https://www.folhei.com.br/" target="_blank" rel="noopener">Folhei<span class="sr-only"> (abre em nova aba)</span><svg class="i" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a></h3>
+                </div>
+                <span class="badge badge--live">no ar</span>
+              </div>
+              <p class="project__desc">Vitrine de catálogo por marca para revendedoras. A cliente folheia, monta o carrinho e o pedido chega pronto no WhatsApp.</p>
+            </article>
+          </li>
+
+          <li>
+            <article class="card project" id="p-verana" tabindex="-1" aria-labelledby="p-verana-t">
+              <div class="project__top">
+                <span class="thumb thumb--arena" aria-hidden="true"><svg class="i"><use href="#i-trophy"/></svg></span>
+                <div class="project__heading">
+                  <p class="project__kicker">Arena esportiva</p>
+                  <h3 class="project__title" id="p-verana-t">Verana Beach Sports</h3>
+                </div>
+                <span class="badge">sob medida</span>
+              </div>
+              <p class="project__desc">Comandas, bar, agenda de quadras, day use com Wellhub e TotalPass e caixa integrado à maquininha Stone.</p>
+            </article>
+          </li>
+
+          <li>
+            <article class="card project" id="p-takahagui" tabindex="-1" aria-labelledby="p-takahagui-t">
+              <div class="project__top">
+                <span class="thumb thumb--garage" aria-hidden="true"><svg class="i"><use href="#i-wrench"/></svg></span>
+                <div class="project__heading">
+                  <p class="project__kicker">Oficina mecânica</p>
+                  <h3 class="project__title" id="p-takahagui-t">Mecânica Takahagui</h3>
+                </div>
+                <span class="badge">sob medida</span>
+              </div>
+              <p class="project__desc">Ordem de serviço no celular do mecânico e fechamento do mês no computador do dono — a mesma tela, funcionando sem sinal.</p>
+            </article>
+          </li>
+
+          <li>
+            <article class="card project" id="p-copilot" tabindex="-1" aria-labelledby="p-copilot-t">
+              <div class="project__top">
+                <span class="thumb thumb--dev" aria-hidden="true"><svg class="i"><use href="#i-zap"/></svg></span>
+                <div class="project__heading">
+                  <p class="project__kicker">Ferramenta para devs</p>
+                  <h3 class="project__title" id="p-copilot-t"><a class="project__link" href="https://github.com/Vinicius-Lima-Melo/web-copilot" target="_blank" rel="noopener">Web Copilot<span class="sr-only"> (abre em nova aba)</span><svg class="i" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a></h3>
+                </div>
+                <span class="badge badge--violet">open source</span>
+              </div>
+              <p class="project__desc">Preenche formulários com uma persona coerente: CPF, CNPJ alfanumérico, CNH e boleto com dígito verificador válido. 100% offline.</p>
+            </article>
+          </li>
+
+          <li>
+            <article class="card project" id="p-carteirinha" tabindex="-1" aria-labelledby="p-carteirinha-t">
+              <div class="project__top">
+                <span class="thumb thumb--edu" aria-hidden="true"><svg class="i"><use href="#i-id-card"/></svg></span>
+                <div class="project__heading">
+                  <p class="project__kicker">Graduação · FATEC Tatuí</p>
+                  <h3 class="project__title" id="p-carteirinha-t"><a class="project__link" href="https://github.com/Vinicius-Lima-Melo/carteirinha-digital-fatec" target="_blank" rel="noopener">Carteirinha Digital<span class="sr-only"> (abre em nova aba)</span><svg class="i" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a></h3>
+                </div>
+                <span class="badge badge--violet">TG</span>
+              </div>
+              <p class="project__desc">Meu trabalho de graduação (TG): a carteirinha de estudante no celular, rápida, segura e gratuita — app do aluno, painel de gestão e API.</p>
+            </article>
+          </li>
+
+          <li>
+            <a class="card link is-highlight" href="mailto:viniciuslimamelo.dev@gmail.com?subject=Quero%20um%20sistema%20assim">
+              <span class="link__icon"><svg class="i" aria-hidden="true"><use href="#i-message"/></svg></span>
+              <span class="link__body">
+                <span class="link__label">Quero um sistema assim</span>
+                <span class="link__desc">Conta o seu problema — a primeira conversa é por minha conta</span>
+              </span>
+              <svg class="i link__arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+
+<style>
+/* ===================== styles.css: abas ===================== */
+/* ------------------------------------------------------------- Abas */
+
+/* Sem JavaScript as duas seções aparecem em sequência e as abas somem. */
+.tabs { display: none; }
+.js .tabs {
+  display: inline-flex; gap: 2px;
+  margin-top: 26px;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+.tabs__tab {
+  min-width: 112px;
+  padding: 9px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.875rem; font-weight: 500;
+  color: var(--muted);
+  transition: color 0.2s, background-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.tabs__tab:hover { color: var(--text); }
+/* Pílula ativa invertida (clara no escuro, escura no claro): lê bem sobre qualquer fundo. */
+.tabs__tab[aria-selected='true'] {
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 600;
+  box-shadow: 0 6px 18px -8px rgb(0 0 0 / 0.5);
+}
+
+
+/* ===================== styles.css: painéis ===================== */
+/* Antes do app.js assumir: a aba certa já no primeiro quadro. */
+.js[data-tab='links'] #projetos,
+.js[data-tab='projetos'] #painel-links { display: none; }
+.js .panel:not([hidden]) { animation: panel-in 0.5s var(--ease); }
+@keyframes panel-in { from { opacity: 0; transform: translateY(8px); } }
+
+.panel__intro {
+  margin: 0 auto 18px;
+  max-width: 44ch;
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+
+/* ===================== styles.css: miniaturas e projetos ===================== */
+.thumb {
+  position: relative;
+  display: grid; place-items: center; flex: none;
+  overflow: hidden;
+  color: #fff;
+  background: var(--g);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), inset 0 0 0 1px rgb(255 255 255 / 0.08);
+}
+.thumb::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgb(255 255 255 / 0.2) 1px, transparent 1px);
+  background-size: 8px 8px;
+  mask-image: linear-gradient(135deg, transparent 30%, #000);
+}
+.thumb::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(120% 80% at 0% 0%, rgb(255 255 255 / 0.3), transparent 55%);
+}
+.thumb .i { position: relative; z-index: 1; filter: drop-shadow(0 2px 6px rgb(0 0 0 / 0.3)); }
+
+.thumb--links  { --g: linear-gradient(140deg, #a94cf0, #5b089b 55%, #2b0449); } /* o roxo da foto */
+.thumb--food   { --g: linear-gradient(140deg, #e879f9, #a21caf 55%, #4a0d5e); }
+.thumb--book   { --g: linear-gradient(140deg, #f0abfc, #c026d3 50%, #6b1a73); }
+.thumb--arena  { --g: linear-gradient(140deg, #a5b4fc, #6366f1 50%, #2e2a7a); }
+.thumb--garage { --g: linear-gradient(140deg, #b8a6d6, #6b5a8e 55%, #2e2245); }
+.thumb--dev    { --g: linear-gradient(140deg, #c084fc, #7e22ce 55%, #3b0764); }
+.thumb--edu    { --g: linear-gradient(140deg, #b39dfb, #6d28d9 55%, #2e1065); }
+
+/* ------------------------------------------------------------- Projetos */
+
+.project { padding: 16px 18px 18px; scroll-margin-top: 20px; }
+.project:hover { border-color: var(--line-strong); }
+.project:focus { outline: none; }
+/* Chegou por um destaque da aba Links: o cartão acende uma vez. */
+.project.is-target { animation: arrive 1.6s var(--ease); }
+@keyframes arrive {
+  0%, 35% { border-color: var(--accent); box-shadow: 0 0 0 4px var(--tint), var(--shadow); }
+}
+
+.project__top {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+}
+.project__top .thumb { width: 48px; height: 48px; border-radius: 13px; }
+.project__top .thumb .i { width: 22px; height: 22px; }
+.project__top .badge { align-self: start; margin-top: 2px; }
+
+.project__kicker {
+  font: 500 0.6875rem/1.3 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+.project__title { margin-top: 3px; font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; }
+.project__title span { color: var(--subtle); font-weight: 500; }
+
+.project__link { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+.project__link .i { width: 15px; height: 15px; color: var(--subtle); transition: transform 0.3s var(--ease), color 0.3s; }
+/* O cartão inteiro vira o alvo do clique, sem aninhar links. */
+.project__link::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+.project:hover .project__link .i { color: var(--text); transform: translate(2px, -2px); }
+.project__link:focus-visible { outline: none; }
+.project:has(.project__link:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.project__desc { margin-top: 12px; font-size: 0.9375rem; line-height: 1.55; color: var(--muted); }
+
+/* Painel ilustrativo de pedidos */
+.mock {
+  margin-top: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line-strong);
+  background: light-dark(#fbfaff, #0b0a12);
+  font-size: 0.8125rem;
+  overflow: hidden;
+}
+.mock__bar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+  font-weight: 600;
+}
+.mock__live {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--live);
+  animation: pulse 2.4s ease-out infinite;
+}
+.mock__kbd {
+  margin-left: auto;
+  padding: 2px 6px;
+  border-radius: 5px;
+  border: 1px solid var(--line-strong);
+  font: 500 0.6875rem/1.3 var(--mono);
+  color: var(--muted);
+}
+.mock__list li {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px;
+  padding: 8px 12px;
+}
+.mock__list li + li { border-top: 1px solid var(--line); }
+.mock__list li:first-child {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--amber) 9%, transparent), transparent 70%);
+}
+.mock__id { font-family: var(--mono); font-size: 0.75rem; color: var(--subtle); }
+.mock__what { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.pill {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font: 500 0.6875rem/1.5 var(--mono);
+}
+.pill--amber { color: var(--amber);    background: color-mix(in srgb, var(--amber) 13%, transparent); }
+.pill--live  { color: var(--live); background: var(--live-tint); }
+.pill--muted { color: var(--muted);    background: var(--chip); }
+
+
+</style>
+
+<script>
+/* ===================== app.js: abas ===================== */
+  // ------------------------------------------------------------- Abas "Links | Projetos"
+
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const panels = tabs.map((tab) => document.getElementById(tab.getAttribute('aria-controls')));
+
+  const select = (index, { focus = false, hash = true } = {}) => {
+    tabs.forEach((tab, i) => {
+      const on = i === index;
+      tab.setAttribute('aria-selected', String(on));
+      tab.tabIndex = on ? 0 : -1;
+      panels[i].hidden = !on;
+    });
+    root.dataset.tab = index === 0 ? 'links' : 'projetos';
+    if (focus) tabs[index].focus();
+    // O endereço acompanha a aba: dá para mandar o link já aberto em "Projetos".
+    if (hash) {
+      const url = index === 0 ? location.pathname + location.search : `#${panels[index].id}`;
+      history.replaceState(null, '', url);
+    }
+  };
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(i));
+    tab.addEventListener('keydown', (event) => {
+      const step = { ArrowRight: 1, ArrowLeft: -1 }[event.key];
+      let next = null;
+      if (step) next = (i + step + tabs.length) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      if (next === null) return;
+      event.preventDefault();
+      select(next, { focus: true });
+    });
+  });
+
+  const panelIndexOf = (el) => panels.findIndex((panel) => panel.contains(el));
+
+  /** Leva até um projeto (ou ao topo da aba) e acende o cartão. */
+  const reveal = (target) => {
+    const index = panelIndexOf(target);
+    if (index < 0) return;
+    select(index, { hash: false });
+
+    const isPanel = panels.includes(target);
+    const scrollTo = isPanel ? document.querySelector('.tabs') : target;
+    scrollTo.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+
+    if (isPanel) {
+      tabs[index].focus({ preventScroll: true });
+    } else {
+      target.focus({ preventScroll: true });
+      target.classList.remove('is-target');
+      void target.offsetWidth; // reinicia a animação se clicar duas vezes
+      target.classList.add('is-target');
+    }
+  };
+
+  document.querySelectorAll('a[data-tab]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      event.preventDefault();
+      history.replaceState(null, '', link.getAttribute('href'));
+      reveal(target);
+    });
+  });
+
+  /** O que o endereço aponta, se estiver dentro de uma das abas (#projetos, #p-linkei…). */
+  const hashTarget = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = id ? document.getElementById(id) : null;
+    return target && panelIndexOf(target) >= 0 ? target : null;
+  };
+
+  const initial = hashTarget();
+  select(initial ? panelIndexOf(initial) : 0, { hash: false });
+  if (initial && !panels.includes(initial)) initial.scrollIntoView({ block: 'start' });
+
+  // Voltar/avançar do navegador. Outros alvos (#conteudo, do "pular para") não trocam a aba.
+  window.addEventListener('hashchange', () => {
+    const target = hashTarget();
+    if (target) reveal(target);
+  });
+
+
+</script>
